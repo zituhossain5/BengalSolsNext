@@ -2,7 +2,7 @@ import React from 'react';
 
 const Partnership = () => {
   return (
-    <header className="bg-red-700 p-8 text-center partnership">
+    <header className="p-8 text-center partnership">
       <h1 className="text-3xl font-bold mb-4">
       Offshore Partnerships
       </h1>
