@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import Partnership from "@/components/Partnership";
+import Technology from "@/components/Technology";
 
 async function fetchHeroSection() {
   const options = {
@@ -60,6 +61,7 @@ export default async function Home() {
       <Header headerContent={headerContent} />
       <HeroSection title={title} description={description} image={image} />
       <Partnership partnershipContent={partnershipContent} />
+      <Technology />
     </main>
   );
 }
