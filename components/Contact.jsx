@@ -1,5 +1,4 @@
-"use client"
-
+'use client'
 import { useState } from 'react';
 import axios from 'axios';
 
@@ -11,6 +10,7 @@ const ContactForm = () => {
     subject: '',
     message: '',
   });
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -18,12 +18,14 @@ const ContactForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
     try {
-      const response = await axios.post('http://localhost:1337/api/contacts', {
+      await axios.post('http://localhost:1337/api/contacts', {
         data: formData,
       });
-      console.log('Form submitted successfully:', response.data);
+
+      console.log('Form submitted successfully');
+
+      // Clear the form fields
       setFormData({
         name: '',
         email: '',
@@ -31,16 +33,22 @@ const ContactForm = () => {
         subject: '',
         message: '',
       });
-      setSuccessMessage('Form submitted successfully!');
-      setTimeout(() => {
-        setSuccessMessage('');
-      }, 5000); // 5000 milliseconds (adjust as needed)
+
+      // Set the success state to true
+      setIsSubmitted(true);
+
+      // Add any further actions (e.g., redirect) here
     } catch (error) {
       console.error('Error submitting form:', error);
     }
   };
 
+
   return (
+    <div>
+      {isSubmitted ? (
+        <p className="text-green-500">Form submitted successfully! Thank you for your message.</p>
+      ) : (
     
     <form onSubmit={handleSubmit}>
       <label>
@@ -65,6 +73,8 @@ const ContactForm = () => {
       </label>
       <button type="submit">Submit</button>
     </form>
+    )}
+    </div>
   );
 };
 
