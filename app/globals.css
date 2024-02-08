@@ -19,6 +19,9 @@
 /* Rest of your styles */
 body {
 }
+p {
+  font-size: 17px;
+}
 
 .page-box {
   max-width: 1560px;
@@ -30,7 +33,7 @@ body {
 }
 .main_head {
   background: #f5f5f5;
-  padding: 40px 90px;
+  padding: 25px 96px;
 }
 .main_head h1 {
   text-align: center;
@@ -40,7 +43,7 @@ body {
   line-height: 1.8;
 }
 .main_head p {
-  font-size: 18px;
+  font-size: 17px;
   text-align: center;
 }
 .nav_head {
@@ -53,10 +56,9 @@ body {
   color: #707070;
 }
 .menu li {
-  background: #F5F5F5;
+  background: #f5f5f5;
   padding: 10px;
 }
-
 
 .menu li:hover,
 .menu li:active {
@@ -127,7 +129,7 @@ textarea {
 }
 
 button {
-  background-color: #4ca5cd!important;
+  background-color: #4ca5cd !important;
   color: #fff;
   padding: 10px 20px;
   border: none;
@@ -135,6 +137,3 @@ button {
   cursor: pointer;
   font-size: 16px;
 }
-
-
-

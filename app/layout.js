@@ -1,10 +1,10 @@
-import { Inter } from "next/font/google";
+import { Roboto_Condensed } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { fetchNavbar } from "@/utils/api";
+import { fetchNavbar, fetchFooterTop, fetchFooterBottom } from "@/utils/api";
 
-const inter = Inter({ subsets: ["latin"] });
+const roboto = Roboto_Condensed({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Bengal Solutions Ltd.",
@@ -13,13 +13,22 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
   const navSectionData = await fetchNavbar();
+  const footerTopData = await fetchFooterTop();
+  const footerBottomData = await fetchFooterBottom();
+
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <div className="page-box">
+      <body className={roboto.className}>
+        <div className="page-box flex flex-col min-h-screen">
+          <main className="flex-grow">
           <NavBar navSectionData={navSectionData} />
           {children}
-          <Footer />
+          <Footer
+            footerTopData={footerTopData}
+            footerBottomData={footerBottomData}
+          />
+          </main>
+          
         </div>
       </body>
     </html>

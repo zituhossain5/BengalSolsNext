@@ -1,3 +1,4 @@
+import Excellence from "@/components/Excellence";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import Partnership from "@/components/Partnership";
@@ -14,15 +15,17 @@ export default async function Home() {
   const heroContent = await fetchHeroSection();
   const partnershipContent = await fetchPartnership();
   const technologyContent = await fetchTechnology();
+
   const {
     attributes: { title, description, image },
   } = heroContent[0];
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-20">
+    <div className="flex min-h-screen flex-col items-center justify-between p-8">
       <Header headerContent={headerContent} />
       <HeroSection title={title} description={description} image={image} />
       <Partnership partnershipContent={partnershipContent} />
+      <Excellence />
       <Technology technologyContent={technologyContent} />
-    </main>
+    </div>
   );
 }

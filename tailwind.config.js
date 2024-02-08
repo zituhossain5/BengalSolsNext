@@ -15,6 +15,8 @@ module.exports = {
         "dark-accent": "#877068",
         "footer-bg": "#373941",
         "heading-color": "#4ca5cd",
+        "block-one-color": "#58BAE9",
+        "block-one-background": "#f9f9f9",
       },
     },
   },

@@ -112,3 +112,49 @@ export async function fetchTechnology() {
     return null;
   }
 }
+
+export async function fetchFooterTop() {
+  const options = {
+    headers: {
+      Authorization: `Bearer ${process.env.STRAPI_API_TOKEN}`,
+    },
+  };
+
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/footer?populate=*`,
+      options
+    );
+    if (!res.ok) {
+      throw new Error(`Failed to fetch data: ${res.statusText}`);
+    }
+    const response = await res.json();
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+}
+
+export async function fetchFooterBottom() {
+  const options = {
+    headers: {
+      Authorization: `Bearer ${process.env.STRAPI_API_TOKEN}`,
+    },
+  };
+
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/footer?populate[FooterBottom][populate]=*`,
+      options
+    );
+    if (!res.ok) {
+      throw new Error(`Failed to fetch data: ${res.statusText}`);
+    }
+    const response = await res.json();
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+}

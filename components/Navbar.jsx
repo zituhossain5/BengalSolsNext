@@ -10,11 +10,13 @@ const NavBar = ({ navSectionData }) => {
   const { logo, navbar } = navSectionData.attributes;
 
   return (
-    <nav className="flex flex-row justify-between items-center lg:px-24 px-4 nav_head">
+    <nav className="flex flex-row justify-between items-center px-4">
       <div className="p-2 px-4 my-4 logo">
         <Link href="/">
           <Image
-            src={process.env.NEXT_PUBLIC_STRAPI_API_URL + logo.data.attributes.url}
+            src={
+              process.env.NEXT_PUBLIC_STRAPI_API_URL + logo.data.attributes.url
+            }
             alt={logo.data.attributes.name}
             height={logo.data.attributes.height}
             width={logo.data.attributes.width}
@@ -33,4 +35,3 @@ const NavBar = ({ navSectionData }) => {
 };
 
 export default NavBar;
-
